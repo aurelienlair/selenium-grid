@@ -1,0 +1,28 @@
+# Compiled python files
+*.pyc
+
+# Byte-compiled / optimized / DLL files
+__pycache__/
+*.py[cod]
+*$py.class
+
+
+# Browsers logs
+geckodriver.log
+
+# Temporary files
+*.bak
+*.swp
+*.~lock.*
+
+# Environment and virtualenv files
+.env
+venv/
+ENV/
+
+# Project-specific files or directories
+/.idea
+.history
+
+# macOS-specific files
+.DS_Store
