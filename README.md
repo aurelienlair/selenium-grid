@@ -12,10 +12,10 @@ In this repository, you will find step-by-step instructions, code samples, and c
 
 1. [Pre-requirements](#pre-requirements)
 2. [Installation](#installation)
+6. [Monitoring the Selenium Grid](#monitoring-the-selenium-grid)
 3. [Running Docker Images](#running-docker-images)
 4. [Running Google Search](#running-google-search)
 5. [Viewing Logs](#viewing-logs)
-6. [Monitoring the Selenium Grid](#monitoring-the-selenium-grid)
 
 ## Pre-requirements
 
@@ -40,13 +40,13 @@ This chapter guides you through the installation process, ensuring that you have
 Instructions for setting up Pipenv and creating a virtual environment within the project directory.
 
 ```bash
-export PIPENV_VENV_IN_PROJECT=1
+make install-virtual-env
 ```
 
-And
+And to activate the virtual environment
 
 ```bash
-pipenv install
+activate-virtual-env
 ```
 
 ## Running Docker Images
@@ -54,7 +54,21 @@ pipenv install
 To launch the required Docker containers, use the following command:
 
 ```bash
-docker-compose up -d
+make compose-up
+```
+
+## Monitoring the Selenium Grid
+
+Before proceeding, make sure to add the following entry to your `/etc/hosts` file:
+
+```bash
+127.0.0.1 selenium-hub
+```
+
+Once done, you can monitor the Selenium Grid dashboard by executing the following command:
+
+```bash
+make open-selenium-grid-dashboard
 ```
 
 ## Running Google Search
@@ -81,12 +95,20 @@ BROWSER=firefox pytest tests/test_google_search.py
 
 Find out how to view the logs of the Chrome and Firefox containers for troubleshooting and debugging.
 
+### All Container logs
+
+To view logs for all containers, you can use the following command:
+
+```bash
+make compose-logs
+```
+
 ### Chrome Container Logs
 
 Commands to view the logs of the Chrome container.
 
 ```bash
-docker-compose logs chrome
+make compose-logs chrome
 ```
 
 ### Firefox Container Logs
@@ -94,9 +116,5 @@ docker-compose logs chrome
 Commands to view the logs of the Firefox container.
 
 ```bash
-docker-compose logs firefox
+make compose-logs firefox 
 ```
-
-## Monitoring the Selenium Grid
-
-To monitor the Selenium Grid, add an entry for selenium-hub to your `/etc/hosts` file. Then, open your web browser and navigate to <http://selenium-hub:4444/ui#>. This web interface allows you to track the status of the nodes and the hub in the Selenium Grid. You can view live information about the connected nodes, their browsers, and their capabilities.
