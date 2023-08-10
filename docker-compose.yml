@@ -1,29 +1,29 @@
 version: "3"
 services:
-  chromium:
-    image: seleniarm/node-chromium:latest
+  chrome:
+    image: selenium/node-chrome:latest
     shm_size: 4gb
     depends_on:
-      - seleniarm-hub
+      - selenium-hub
     environment:
-      - SE_EVENT_BUS_HOST=seleniarm-hub
+      - SE_EVENT_BUS_HOST=selenium-hub
       - SE_EVENT_BUS_PUBLISH_PORT=4442
       - SE_EVENT_BUS_SUBSCRIBE_PORT=4443
       - SE_NODE_OVERRIDE_OPTIONS=--no-sandbox
 
   firefox:
-    image: seleniarm/node-firefox:latest
+    image: selenium/node-firefox:latest
     shm_size: 4gb
     depends_on:
-      - seleniarm-hub
+      - selenium-hub
     environment:
-      - SE_EVENT_BUS_HOST=seleniarm-hub
+      - SE_EVENT_BUS_HOST=selenium-hub
       - SE_EVENT_BUS_PUBLISH_PORT=4442
       - SE_EVENT_BUS_SUBSCRIBE_PORT=4443
 
-  seleniarm-hub:
-    image: seleniarm/hub:latest
-    container_name: seleniarm-hub
+  selenium-hub:
+    image: selenium/hub:latest
+    container_name: selenium-hub
     ports:
       - "4442:4442"
       - "4443:4443"

@@ -19,7 +19,7 @@ echo-virtual-env: ## 🗨️ Echo Python virtual environment
 
 compose-logs: ## 📑 Show Docker 🐳 containers logs
 	@echo "📑 Looking for Docker 🐳 logs"
-	@if [ "$(filter-out chromium firefox,$(strip $(param)))" = "" ]; then \
+	@if [ "$(filter-out chrome firefox,$(strip $(param)))" = "" ]; then \
 		docker-compose logs -f $(param); \
 	else \
 		docker-compose logs -f; \
@@ -37,11 +37,11 @@ open-selenium-grid-dashboard: ## 📊 Open Selenium grid dashboard
 	@echo "🕸️ opening Selenium grid dashboard"
 	open http://selenium-hub:4444/ui
 
-chromium-version: ## 🏃 Echo Chromium version 
-	docker exec -it selenium-grid-chromium-1 bash -c 'chromium --version'
+chrome-version: ## 🏃 Echo Chrome version 
+	docker exec -it selenium-grid-chrome-1 bash -c 'chrome --version'
 
-chromium-grid-run: ## ▶️ Run tests with Chromium
-	@echo "✅🧪 running tests on Chromium with Selenium grid"
+chrome-grid-run: ## ▶️ Run tests with Chrome
+	@echo "✅🧪 running tests on Chrome with Selenium grid"
 	BROWSER=chrome pytest tests/test_google_search.py
 
 firefox-version: ## 🏃 Echo Firefox version 
