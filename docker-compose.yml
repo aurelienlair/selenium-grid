@@ -1,7 +1,7 @@
 version: "3"
 services:
   chromium:
-    image: seleniarm/standalone-chromium:latest
+    image: seleniarm/node-chromium:latest
     shm_size: 4gb
     depends_on:
       - seleniarm-hub
@@ -12,7 +12,7 @@ services:
       - SE_NODE_OVERRIDE_OPTIONS=--no-sandbox
 
   firefox:
-    image: seleniarm/standalone-firefox:latest
+    image: seleniarm/node-firefox:latest
     shm_size: 4gb
     depends_on:
       - seleniarm-hub
