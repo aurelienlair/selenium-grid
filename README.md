@@ -73,14 +73,14 @@ make open-selenium-grid-dashboard
 
 ## Running Google Search with Selenium Grid
 
-This chapter provides instructions on running the Google search tests using different browsers, namely [Chrome](https://www.google.com/chrome) and [Firefox](https://www.mozilla.org/en-US/firefox/new/) in [headless](https://en.wikipedia.org/wiki/Headless_browser) mode with [Selenium Grid](https://www.selenium.dev/documentation/grid).
+This chapter provides instructions on running the Google search tests using different browsers, namely [Chromium](https://www.google.com/chromium) and [Firefox](https://www.mozilla.org/en-US/firefox/new/) in [headless](https://en.wikipedia.org/wiki/Headless_browser) mode with [Selenium Grid](https://www.selenium.dev/documentation/grid).
 
-### Chrome
+### Chromium
 
-Execute the Google search tests with the Chrome browser.
+Execute the Google search tests with the Chromium browser.
 
 ```bash
-BROWSER=chrome pytest tests/test_google_search.py
+BROWSER=chromium pytest tests/test_google_search.py
 ```
 
 ### Firefox
@@ -99,10 +99,9 @@ This chapter provides instructions on running the Google search tests using [Fir
 pytest tests/test_google_search.py
 ```
 
-
 ## Viewing Logs
 
-Find out how to view the logs of the Chrome and Firefox containers for troubleshooting and debugging.
+Find out how to view the logs of the Chromium and Firefox containers for troubleshooting and debugging.
 
 ### All Container logs
 
@@ -112,12 +111,12 @@ To view logs for all containers, you can use the following command:
 make compose-logs
 ```
 
-### Chrome Container Logs
+### Chromium Container Logs
 
-Commands to view the logs of the Chrome container.
+Commands to view the logs of the Chromium container.
 
 ```bash
-make compose-logs chrome
+make compose-logs chromium
 ```
 
 ### Firefox Container Logs
