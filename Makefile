@@ -41,13 +41,17 @@ open-selenium-grid-dashboard: ## 📊 Open Selenium grid dashboard
 chromium-version: ## 🏃 Echo Chromium version 
 	docker exec -it selenium-grid-chromium-1 bash -c 'chromium --version'
 
-chromium-run: ## ▶️ Run tests with Chromium
-	@echo "✅🧪 running tests on Chromium"
+chromium-grid-run: ## ▶️ Run tests with Chromium
+	@echo "✅🧪 running tests on Chromium with Selenium grid"
 	BROWSER=chrome pytest tests/test_google_search.py
 
 firefox-version: ## 🏃 Echo Firefox version 
 	docker exec -it selenium-grid-firefox-1 bash -c 'firefox --version'
 
+firefox-grid-run: ## ▶️ Run tests with Firefox
+	@echo "✅🧪 running tests on Firefox with Selenium grid"
+	BROWSER=firefox pytest tests/test_google_search.py
+
 firefox-run: ## ▶️ Run tests with Firefox
 	@echo "✅🧪 running tests on Firefox"
-	BROWSER=firefox pytest tests/test_google_search.py
+	pytest tests/test_google_search.py
