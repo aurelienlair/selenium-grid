@@ -17,14 +17,13 @@ activate-virtual-env: ## 🔌 Activate Python virtual environment
 echo-virtual-env: ## 🗨️ Echo Python virtual environment
 	@echo "🐍 Python virtual environment present in $(VIRTUAL_ENV)"
 
-compose-logs: ## 📑 Show docker 🐳 containers logs
-	@echo "📑 looking for docker 🐳 logs"
-	@if [ "$(filter-out chrome firefox,$(strip $(param)))" = "" ]; then \
-		echo "$(param)"; \
+compose-logs: ## 📑 Show Docker 🐳 containers logs
+	@echo "📑 Looking for Docker 🐳 logs"
+	@if [ "$(filter-out chromium firefox,$(strip $(param)))" = "" ]; then \
+		docker-compose logs -f $(param); \
 	else \
 		docker-compose logs -f; \
 	fi
-	echo "here"
 
 compose-down: ## 🛑 Shut down docker 🐳 services
 	@echo "🛑 shutting down docker 🐳 services"
