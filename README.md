@@ -46,7 +46,7 @@ make install-virtual-env
 And to activate the virtual environment
 
 ```bash
-activate-virtual-env
+make activate-virtual-env
 ```
 
 ## Running Docker Images
